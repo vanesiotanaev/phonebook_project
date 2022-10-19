@@ -6,5 +6,5 @@ def button_click():
     while menu_choice <= 0 or menu_choice > 7:
         view.input_error()
         menu_choice = view.menu_command()
-    if menu_choice == '1':
+    if menu_choice == 1:
         model.show_all_contacts()
