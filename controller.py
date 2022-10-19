@@ -8,3 +8,6 @@ def button_click():
         menu_choice = view.menu_command()
     if menu_choice == 1:
         model.show_all_contacts()
+    if menu_choice == 4:
+        model.create_new_contact()
+        
