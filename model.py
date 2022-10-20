@@ -43,7 +43,8 @@ def edit_contact():
         for line in file.readlines():
             if line[0] == view.contact_choice():
                 print(line)
-
+            else:
+                view.input_error()
     
 
 def save_new_contact_to_file(new_contact):
