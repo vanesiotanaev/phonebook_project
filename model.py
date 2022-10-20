@@ -1,4 +1,5 @@
 import view
+import random
 
 contacts_list = []
 
@@ -22,7 +23,8 @@ def count_contacts():
     count = 0
     file = open_file_to_read()
     for line in file.readlines():
-            count += 1
+            count = int(line[0])
+    print(count)
     return count
             
 def show_all_contacts():
@@ -47,7 +49,7 @@ def del_contact(id):
         for line in file.readlines():
             if line[0] == id:
                 for item in contacts:
-                    if line[0] in item:
+                    if line[0] == item[0]:
                         print(item)
                         contacts.remove(item)
                 print(contacts)
