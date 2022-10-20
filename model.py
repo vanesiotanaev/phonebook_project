@@ -60,17 +60,23 @@ def del_contact(id):
 
 def edit_contact(id):
     contacts = file_to_list()
-    print(contacts)
     for i in range(len(contacts)):
         contacts[i] = contacts[i].split('|')
-    print(contacts)
     for j in range(len(contacts)):
         if contacts[j][0] == id:
-            print(contacts[j])
             field = int(view.which_field_to_change())
             contacts[j][field] = view.new_value()
-            print(contacts[j])
-    print(contacts)
+    new_list = []
+    for item in contacts:
+        item = '|'.join(item)
+        new_list.append(item)
+    print(new_list)
+
+
+
+    # with open_file_to_rewrite() as file:
+    #     for k in range(len(contacts)):
+    #         file.write(contacts[k])
 
     # contacts = file_to_list()
     # for item in contacts:
