@@ -24,7 +24,6 @@ def count_contacts():
     file = open_file_to_read()
     for line in file.readlines():
             count = int(line[0])
-    print(count)
     return count
             
 def show_all_contacts():
@@ -39,7 +38,7 @@ def create_new_contact():
     contact_list.append(view.enter_name())
     contact_list.append(view.enter_number())
     contact_list.append(view.enter_comment())
-    contact_list.append('\n')
+    # contact_list.append('\n')
 
     return contact_list
 
@@ -57,6 +56,18 @@ def del_contact(id):
         for item in contacts:
             file.writelines(item)
 
+def edit_contact(id):
+    contacts = file_to_list()
+    for item in contacts:
+        if id == item[0]:
+            item = item.split(';')
+            print(item)
+            index = int(view.which_field_to_change())
+            print(item[index])
+            item[index] = view.new_value()
+            print(item)
+    print(contacts)
+
 def find_contact(id):
     with open_file_to_read() as file:
         for line in file.readlines():
@@ -65,7 +76,6 @@ def find_contact(id):
 
 def save_new_contact_to_file(new_contact):
     new_contact_str = '; '.join(new_contact)
-    path = 'contacts.txt'
     with open_file_to_add() as file:
         file.write(new_contact_str)
 
