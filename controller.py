@@ -14,3 +14,5 @@ def button_click():
         model.edit_contact()
     if menu_choice == 6:
         model.del_contact(view.contact_choice())
+    if menu_choice == 7:
+        view.print_line(model.find_contact(view.contact_choice()))

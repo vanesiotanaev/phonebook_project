@@ -36,3 +36,12 @@ def new_value():
 
 def input_error():
     print('Ошибка ввода!')
+
+def print_line(line):
+    if line != None:
+        print(line)
+    else:
+        no_contact()
+
+def no_contact():
+    print('Такого контакта не существует!')

@@ -57,33 +57,11 @@ def del_contact(id):
         for item in contacts:
             file.writelines(item)
 
-
-# def edit_contact():
-#     id = view.contact_choice()
-#     with open_file_to_read() as file:
-#         for line in file.readlines():
-#             if line[0] == id:
-#                 print(f'Вы выбрали данный контакт: {line}')
-#                 contact_list = line.split('; ')
-#                 contact_list.pop(len(contact_list)-1)
-#                 contact_list.pop(0)
-#                 fields_list = ['1', '2', '3', '4']
-#                 zipper = zip(fields_list, contact_list)
-#                 contact_list = dict(zipper)
-#                 print(contact_list)
-#                 temp = view.which_field_to_change()
-#                 if temp in fields_list:
-#                     contact_list[temp] = view.new_value()
-#                     print(contact_list)
-#                     with open_file_to_write() as file:
-#                         for line in file:
-#                             if line[0] == id:
-#                                 file.write(contact_list)
-#                 else:
-#                     view.input_error()
-#             else:
-#                 view.input_error()
-    
+def find_contact(id):
+    with open_file_to_read() as file:
+        for line in file.readlines():
+            if line[0] == id: 
+                return line
 
 def save_new_contact_to_file(new_contact):
     new_contact_str = '; '.join(new_contact)
