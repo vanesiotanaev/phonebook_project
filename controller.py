@@ -9,5 +9,5 @@ def button_click():
     if menu_choice == 1:
         model.show_all_contacts()
     if menu_choice == 4:
-        model.create_new_contact()
+        model.save_new_contact_to_file(model.create_new_contact())
         
