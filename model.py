@@ -14,6 +14,10 @@ def open_file_to_add():
     path = 'contacts.txt'
     return open(path, 'a', encoding= 'utf-8')
 
+def open_file_to_rewrite():
+    path = 'contacts.txt'
+    return open(path, 'w', encoding= 'utf-8')
+
 def count_contacts():
     count = 0
     file = open_file_to_read()
@@ -38,11 +42,18 @@ def create_new_contact():
     return contact_list
 
 def del_contact(id):
-    print(file_to_list())
+    contacts = file_to_list()
     with open_file_to_read() as file:
         for line in file.readlines():
             if line[0] == id:
-                print(line)
+                for item in contacts:
+                    if line[0] in item:
+                        print(item)
+                        contacts.remove(item)
+                print(contacts)
+    with open_file_to_rewrite() as file:
+        for item in contacts:
+            file.writelines(item)
 
 
 # def edit_contact():

@@ -1,2 +1,0 @@
-1; Tanaev; Ivan; 927; comment; 
-2; Mordovina; Eleonora; 999; comment; 
