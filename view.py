@@ -25,10 +25,10 @@ def contact_choice():
     return str(input('Введите ID контакта: '))
 
 def which_field_to_change():
-    return str(input('1. Фамилия\
-                    \n2. Имя\
-                    \n3. Номер телефона\
-                    \n4. Комментарий \
+    return str(input('1. Surname\
+                    \n2. Name\
+                    \n3. Number\
+                    \n4. Comment\
                     \nВыберите поле, которое необходимо изменить (1-4): '))
 
 def new_value():
@@ -39,7 +39,10 @@ def input_error():
 
 def print_line(line):
     if line != None:
-        print(line)
+        line = line.split('|')
+        print()
+        print(f'ID: {line[0]} \
+            \nSurname: {line[1]}; Name: {line[2]}; Number: {line[3]}; Comment: {line[4]}')
     else:
         no_contact()
 

@@ -1,3 +1,2 @@
-2; Mordovina; Eleonora; 123; www; 
-3; Egorov; Andrew; 123; ytu; 
-5; Tanaev; Ivan; 1234567; lalala; 
+1|Tanaev|Ivan|+79277351233|husband
+2|Mordovina|Eleonora|999|wife
