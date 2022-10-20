@@ -1,11 +1,13 @@
 import view
-import random
 
 contacts_list = []
+ids_list = []
 
-def init(user_list):
+def init(user_list, ids):
     global contacts_list
+    global ids_list
     contacts_list = user_list
+    ids_list = ids
 
 def open_file_to_read():
     path = 'contacts.txt'
@@ -42,7 +44,6 @@ def create_new_contact():
     contact_list.append(view.enter_name())
     contact_list.append(view.enter_number())
     contact_list.append(view.enter_comment())
-    # contact_list.append('\n')
 
     return contact_list
 
@@ -70,28 +71,10 @@ def edit_contact(id):
     for item in contacts:
         item = '|'.join(item)
         new_list.append(item)
-    print(new_list)
-
-
-
-    # with open_file_to_rewrite() as file:
-    #     for k in range(len(contacts)):
-    #         file.write(contacts[k])
-
-    # contacts = file_to_list()
-    # for item in contacts:
-    #     if id == item[0]:
-    #         view.print_line(item)
-    #         item = item.split('|')
-    #         index = int(view.which_field_to_change())
-    #         print(item[index])
-    #         item[index] = view.new_value()
-    #         contacts_list.append(item)
-    #     else:
-    #         contacts_list.append(item)
-    #     print(contacts_list)
-
-
+    with open_file_to_rewrite() as file:
+        for k in range(len(new_list)):
+             file.write(new_list[k])
+    
 def find_contact(id):
     with open_file_to_read() as file:
         for line in file.readlines():
