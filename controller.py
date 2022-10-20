@@ -12,3 +12,5 @@ def button_click():
         model.save_new_contact_to_file(model.create_new_contact())
     if menu_choice == 5:
         model.edit_contact()
+    if menu_choice == 6:
+        model.del_contact(view.contact_choice())

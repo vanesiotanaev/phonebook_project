@@ -25,11 +25,14 @@ def contact_choice():
     return str(input('Введите ID контакта: '))
 
 def which_field_to_change():
-    return str(input('Выберите поле, которое необходимо изменить (1-4):\
-                    \n1. Фамилия\
+    return str(input('1. Фамилия\
                     \n2. Имя\
                     \n3. Номер телефона\
-                    \n4. Комментарий'))
+                    \n4. Комментарий \
+                    \nВыберите поле, которое необходимо изменить (1-4): '))
+
+def new_value():
+    return str(input('Введите новое значение: '))
 
 def input_error():
     print('Ошибка ввода!')

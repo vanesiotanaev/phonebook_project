@@ -1,16 +1,16 @@
 import view
 
-id_list = []
+contacts_list = []
 
 def init(user_list):
-    global id_list
-    id_list = user_list
+    global contacts_list
+    contacts_list = user_list
 
 def open_file_to_read():
     path = 'contacts.txt'
     return open(path, 'r', encoding= 'utf-8')
 
-def open_file_to_write():
+def open_file_to_add():
     path = 'contacts.txt'
     return open(path, 'a', encoding= 'utf-8')
 
@@ -28,7 +28,6 @@ def show_all_contacts():
             print(line)
 
 def create_new_contact():
-    id_list.append(count_contacts()+1)
     contact_list = [str(count_contacts()+1)]
     contact_list.append(view.enter_surname())
     contact_list.append(view.enter_name())
@@ -38,17 +37,49 @@ def create_new_contact():
 
     return contact_list
 
-def edit_contact():
+def del_contact(id):
+    print(file_to_list())
     with open_file_to_read() as file:
         for line in file.readlines():
-            if line[0] == view.contact_choice():
+            if line[0] == id:
                 print(line)
-            else:
-                view.input_error()
+
+
+# def edit_contact():
+#     id = view.contact_choice()
+#     with open_file_to_read() as file:
+#         for line in file.readlines():
+#             if line[0] == id:
+#                 print(f'Вы выбрали данный контакт: {line}')
+#                 contact_list = line.split('; ')
+#                 contact_list.pop(len(contact_list)-1)
+#                 contact_list.pop(0)
+#                 fields_list = ['1', '2', '3', '4']
+#                 zipper = zip(fields_list, contact_list)
+#                 contact_list = dict(zipper)
+#                 print(contact_list)
+#                 temp = view.which_field_to_change()
+#                 if temp in fields_list:
+#                     contact_list[temp] = view.new_value()
+#                     print(contact_list)
+#                     with open_file_to_write() as file:
+#                         for line in file:
+#                             if line[0] == id:
+#                                 file.write(contact_list)
+#                 else:
+#                     view.input_error()
+#             else:
+#                 view.input_error()
     
 
 def save_new_contact_to_file(new_contact):
     new_contact_str = '; '.join(new_contact)
     path = 'contacts.txt'
-    with open_file_to_write() as file:
+    with open_file_to_add() as file:
         file.write(new_contact_str)
+
+def file_to_list():
+    with open_file_to_read() as file:
+        for line in file.readlines():
+            contacts_list.append(line)
+    return contacts_list
